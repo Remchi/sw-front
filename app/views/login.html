@@ -1,0 +1,23 @@
+<h1>Login</h1>
+
+<div class="alert alert-danger" ng-show="wrongCredentials">
+  Wrong Credentials.
+</div>
+
+<form class="form" ng-submit="login()" novalidate name="loginForm">
+  <div class="form-group" ng-class="{'has-error' : loginForm.email.$invalid && loginForm.email.$dirty, 'has-success' : loginForm.email.$valid && loginForm.email.$dirty }">
+    <label class="control-label" for="email">Email</label>
+    <input class="form-control" type="email" name="email" ng-model="user.email" required rm-focus />
+    <p ng-show="loginForm.email.$invalid && loginForm.email.$dirty && !loginForm.email.$focused" class="help-block">Wrong email address</p>
+  </div>
+
+  <div ng-class="{'has-error' : loginForm.password.$invalid && loginForm.password.$dirty, 'has-success' : loginForm.password.$valid && loginForm.password.$dirty }" class="form-group">
+    <label for="password">Password</label>
+    <input class="form-control" type="password" name="password" ng-model="user.password" required rm-focus />
+    <p ng-show="loginForm.password.$invalid && loginForm.password.$dirty && !loginForm.password.$focused" class="help-block">Password is required</p>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary" ng-disabled="loginForm.$invalid" type="submit">Log It</button>
+  </div>
+</form>

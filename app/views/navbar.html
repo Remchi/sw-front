@@ -1,0 +1,8 @@
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li ng-show="isLoggedIn()"><a ng-click="logout()">Logout</a></li>
+      <li ng-class="{active:isActive('/')}"><a ng-href="#">Home</a></li>
+      <li ng-class="{active:isActive('/edges')}"><a ng-href="/#/edges">Edges</a></li>
+    </ul>
+    <h3 class="text-muted">Savage Worlds Database</h3>
+  </div>

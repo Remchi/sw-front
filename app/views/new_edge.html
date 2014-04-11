@@ -1,0 +1,29 @@
+    <form name="newEdgeForm" ng-submit="createEdge()">
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" name="name" class="form-control" ng-model="newEdge.name" />
+      </div>
+      <div class="form-group">
+        <label for="">Description</label>
+        <textarea name="description" class="form-control" ng-model="newEdge.description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="">Category</label>
+        <select
+          class="form-control"
+          name="category"
+          ng-model="newEdge.category"
+          ng-options="c.name for c in categories"></select>
+      </div>
+      <div class="form-group">
+        <label for="">Rank</label>
+        <select
+          class="form-control"
+          name="rank"
+          ng-model="newEdge.rank"
+          ng-options="r.name for r in ranks"></select>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Create</button>
+      </div>
+    </form>

@@ -1,0 +1,29 @@
+<h1>Edges</h1>
+
+<div class="row">
+
+  <div class="col-md-8">
+
+    <div ng-include="'views/filters.html'" ng-controller="FiltersController"></div>
+
+    <ul id="edges" class="col-md-12">
+      <li ng-repeat-start="edge in edges | filter:{name:filterBy.search} | edges:filterBy" >
+        <span class="label label-default">{{edge.category.name}}</span>
+        <span ng-click="selectEdge(edge)">{{edge.name}}</span>
+        <span class="text-muted">({{displayRequirements(edge.requirements)}})</span>
+
+        <span ng-show="isLoggedIn()">
+          <a ng-click="editEdge(edge)">Edit</a> | <a ng-click="edgeDelete(edge)">Delete</a>
+        </span>
+      </li>
+      <li ng-repeat-end ng-show="isSelected(edge)">{{edge.description}}</li>
+    </ul>
+
+  </div>
+
+  
+  <div ng-show="isLoggedIn()" class="col-md-4">
+    <div ng-include="'views/new_edge.html'" ng-controller="NewEdgeController"></div>
+  </div>
+
+</div>
